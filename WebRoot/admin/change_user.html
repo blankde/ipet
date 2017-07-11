@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>添加用户</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="plugins/layui/layui.js"></script>
+<script>
+layui.config({
+	base: 'plugins/layui/modules/'
+}).extend({
+	purl:'purl',
+});
+
+layui.use(['purl'], function() {
+	uid = $.url().param('uid');
+	$('#uid').val(uid);
+});
+</script>
+<script>
+	$(function(){
+	// 新增表单
+		var show_count = 20;  
+		var count = 1;  
+	});
+	
+	
+	function deltr(opp) {
+		var length = $(".tabInfo .tbody1>tr").length;
+		//alert(length);
+		if (length <= 1) {
+			alert("至少保留一行");
+		} else {
+			$(opp).parent().parent().remove();//移除当前行
+			
+		}
+	}
+// ----
+</script>
+<style>
+	*{padding: 0px;margin: 0px;font-style: normal;list-style-type: none;text-decoration: none;font-family: "微软雅黑";font-size: 14px;border:0 none;line-height: 24px;color: #666; }
+	table{table-layout: fixed;width: 100%;}
+	input,button,select,textarea{outline: none;resize:none;padding: 3px 5px;border:1px solid #ddd;}
+	input:focus,textarea:focus{border:1px solid #9ab6d6;}
+	.whiteBg{background: #fff;}
+	.normTbe{border-left:1px solid #ddd;border-top:1px solid #ddd; }
+	.normTbe td,.normTbe th{border-bottom: 1px solid #ddd;border-right:1px solid #ddd;padding: 15px;text-align: center;}
+	.normTbe input{width: 80%;text-align: center;}
+	.wrapper{width: 1140px;padding: 0 20px; margin: 0 auto;clear: both;}
+	.hide{display: none;}
+	.hideTr{background: #ddd;}
+	.btn_a1{padding-top: 15px;}
+	.btn_a1 a{display: inline-block;*display: inline;*zoom: 1;width: 120px;line-height: 45px;background: #50abfd;color: #fff;}
+	.btn_a1 .addtr2,.btn_a1 .dtadd{background: #ff9900;}
+	.btn{width:480px;margin:20px auto 0 auto;}
+</style>
+</head>
+<body>
+<form class="layui-form" method="post" action="/pro/user/updateUser">
+<div class="wrapper">
+    <div class="itemInfo">
+        <table cellspacing="0" cellpadding="0" border="0" class="normTbe tabInfo">
+        <thead>
+            <tr>
+                <th><em>*</em> id:</th>
+                <th><em>*</em> 用户名：</th>
+                <th><em>*</em> 密码：</th>
+                <th><em>*</em> 角色：</th>
+                <th>性别：</th>
+                <th>年龄：</th>
+                <th>学历：</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody class="tbody1">
+            <tr>
+                <td><input type="text" id="uid" readonly="readonly"/></td>
+                <td><input type="text" /></td>
+                <td><input type="text" /></td>
+                <td><input type="text" /></td>
+                <td><input type="text" /></td>
+                <td><input type="text" /></td>
+                <td><input type="text" /></td>
+                <td>
+                    <a class="text_a" href="javascript:;" onClick="deltr(this)">删除</a>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+        <div class="layui-form-item btn">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+</div>
+
+</div>
+</body>
+</html>
